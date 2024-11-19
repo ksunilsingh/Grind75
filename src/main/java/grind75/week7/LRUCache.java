@@ -25,17 +25,14 @@ public class LRUCache {
 
 	public void put(int key, int value) {
 		if (map.containsKey(key)) {
-
-			cache.remove(key);
-			cache.addFirst(key);
+			cache.remove((Integer) key);
 		} else {
 			if (cache.size() >= capacity) {
 				int lruKey = cache.removeLast();
-				cache.remove(lruKey);
+				map.remove(lruKey);
 			}
 		}
-
+		cache.addFirst(key);
 		map.put(key, value);
-
 	}
 }
