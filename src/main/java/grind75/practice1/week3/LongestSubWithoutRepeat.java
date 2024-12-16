@@ -1,4 +1,4 @@
-package grind75.week3;
+package grind75.practice1.week3;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,25 +27,18 @@ import java.util.Map;
  * 0 <= s.length <= 5 * 104 s consists of English letters, digits, symbols and
  * spaces.
  */
-public class LongestSubWithoutRepeat4 {
+public class LongestSubWithoutRepeat {
 	public int lengthOfLongestSubstring(String s) {
-		int left = 0, right = 0;
-		int len = 0;
-
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
-
-		while (right < s.length()) {
-			if (map.containsKey(s.charAt(right))) {
-				left = Math.max(map.get(s.charAt(right)) + 1, left);
+		int left = 0, len = 0;
+		Map<Character, Integer> charMap = new HashMap<Character, Integer>();
+		for (int right = 0; right < s.length(); ++right) {
+			if (charMap.containsKey(s.charAt(right))) {
+				left = Math.max(left, charMap.get(s.charAt(right)) + 1);
 			}
-
-			map.put(s.charAt(right), right);
-			if (len < right - left + 1) {
-				len = right - left + 1;
-			}
-
-			++right;
+			len = Math.max(len, right - left + 1);
+			charMap.put(s.charAt(right), right);
 		}
+
 		return len;
 	}
 }
