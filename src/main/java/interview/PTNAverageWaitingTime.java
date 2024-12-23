@@ -1,6 +1,6 @@
-package interview.ptn;
+package interview;
 
-public class AverageWaitingTime {
+public class PTNAverageWaitingTime {
 	public double averageWaitingTime(int[][] customers) {
 		double totalWaitingTime = customers[0][1];
 		int[] chefStartTimes = new int[customers.length];
@@ -24,7 +24,7 @@ public class AverageWaitingTime {
 
 	public static void main(String[] args) {
 		// [[1,2],[2,5],[4,3]]
-		AverageWaitingTime avg = new AverageWaitingTime();
+		PTNAverageWaitingTime avg = new PTNAverageWaitingTime();
 		avg.averageWaitingTime(new int[][] { { 5, 2 }, { 5, 4 }, { 10, 3 }, { 20, 1 } });
 	}
 }
